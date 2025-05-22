@@ -1,0 +1,9 @@
+﻿{
+  "wasmHostProperties": {
+    "perHostConfig": [
+      {
+        "Host": "browser"
+      }
+    ]
+  }
+}

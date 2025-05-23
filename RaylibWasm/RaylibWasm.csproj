@@ -19,9 +19,7 @@
   </PropertyGroup>
 
   <ItemGroup Condition="'$(Platform)'=='AnyCPU'">
-    <None Update="Resources\**\*.*">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <None Update="Resources\**\*.*" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
   
   <PropertyGroup Condition="'$(Platform)'=='Web'">
@@ -32,6 +30,7 @@
     <WasmBuildNative>true</WasmBuildNative>
     <WasmNativeStrip>true</WasmNativeStrip>
     <WasmAllowUndefinedSymbols>true</WasmAllowUndefinedSymbols>
+    <WasmEmitSymbolMap>false</WasmEmitSymbolMap>
   </PropertyGroup>
   
   <ItemGroup Condition="'$(Platform)'=='Web'">

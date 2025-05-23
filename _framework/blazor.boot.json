@@ -1,32 +1,41 @@
 {
   "mainAssemblyName": "RaylibWasm.dll",
   "resources": {
-    "hash": "sha256-N/82YxvWH7x+w+c3Wu1QNjn5s9UmcuDscXjw2cyziA8=",
+    "hash": "sha256-SY0M5XkyVTKSgdIUZKX8JEemCuMvsGIARlkjLCYFAPo=",
     "jsModuleNative": {
-      "dotnet.native.js": "sha256-abgcftZ9uFacmTsA5yQPrYRC9fmBiQ/bsIcXF26Sjfg="
+      "dotnet.native.js": "sha256-3t7UCQz38mN0Wn5FQr55r9w8PJ362QjlkJhGhAbuwTM="
     },
     "jsModuleRuntime": {
       "dotnet.runtime.js": "sha256-kTZbe5ESp04VMT22TnjRmFj88VbtEcohZfCm4og/IDw="
     },
     "wasmNative": {
-      "dotnet.native.wasm": "sha256-KrQJmtd8XCZ4sQ/hUwfFIvDwtka/oC0kwAhJ+fjNqbQ="
+      "dotnet.native.wasm": "sha256-qHa1Tmk2xfpJMlY7lMbokF1xSvMlz4w1nXMnp5zMwRc="
     },
     "coreAssembly": {
-      "Raylib-cs.wasm": "sha256-osWjiglD5h7qoAZAXiXDLRM57r8gMomzIzlDyxbJdWU=",
-      "RaylibWasm.wasm": "sha256-TitI9qD3o3NbRQGaZOTCd2VW/R6NZSCaT3FbjQBKEOE=",
-      "System.Private.CoreLib.wasm": "sha256-fUyg7hyLcuvRdNcT59Qj8fN7csTvQtUITHVlD3uDN5s=",
+      "Raylib-cs.wasm": "sha256-pWiF4q8Z83LGWzcrvrzTFd8yqnYJr2cNh0k5AN4lOwg=",
+      "RaylibWasm.wasm": "sha256-+Rfjn7RAyeCzy2oY7RtSLfUgBzgjMQBKzXpyPOR8qxg=",
+      "System.Private.CoreLib.wasm": "sha256-2cZ0pQG1Pw9JknHDR1CKKisvxn9+7zAN76beCQYfMWQ=",
       "System.Runtime.InteropServices.JavaScript.wasm": "sha256-VnNgpqP7SIQccYrjGmwpP42yW84WmVcFk0BGZtPRJqQ=",
       "aot-instances.wasm": "sha256-Obp5F98Qz12KeOrJulW9k5x0dhTFvl7fSl2QI+FAhZk="
     },
     "assembly": {},
     "coreVfs": {
       "runtimeconfig.bin": {
-        "supportFiles/1_runtimeconfig.bin": "sha256-j8dmK7YPHHTbkS+ZwJixur+jBDk8AnCzB1le9oZbtDQ="
+        "supportFiles/4_runtimeconfig.bin": "sha256-j8dmK7YPHHTbkS+ZwJixur+jBDk8AnCzB1le9oZbtDQ="
       }
     },
     "vfs": {
       "Resources//raylib_logo.png": {
         "supportFiles/0_raylib_logo.png": "sha256-tRbYuDIagXxsCoy2AuoCiC107Lt8YOhS0uFHEUpDYLc="
+      },
+      "Resources/shaders/glsl100//raymarching.fs": {
+        "supportFiles/1_raymarching.fs": "sha256-WkxKNf30f1LHu2VFvbIKGJ2H6w2lAmTFNH40NgDbJ5Q="
+      },
+      "Resources/shaders/glsl120//raymarching.fs": {
+        "supportFiles/2_raymarching.fs": "sha256-ABI+JnOdPDHmWMHo2jWdHuqiGwmc/oXcUX0/uYU0GYo="
+      },
+      "Resources/shaders/glsl330//raymarching.fs": {
+        "supportFiles/3_raymarching.fs": "sha256-nenFB1Dd0NAfuvmN+N2/kZwDgA580T8d+QVD1g/pX5o="
       }
     }
   },

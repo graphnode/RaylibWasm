@@ -1,0 +1,35 @@
+{
+  "mainAssemblyName": "RaylibWasm.dll",
+  "resources": {
+    "hash": "sha256-N/82YxvWH7x+w+c3Wu1QNjn5s9UmcuDscXjw2cyziA8=",
+    "jsModuleNative": {
+      "dotnet.native.js": "sha256-abgcftZ9uFacmTsA5yQPrYRC9fmBiQ/bsIcXF26Sjfg="
+    },
+    "jsModuleRuntime": {
+      "dotnet.runtime.js": "sha256-kTZbe5ESp04VMT22TnjRmFj88VbtEcohZfCm4og/IDw="
+    },
+    "wasmNative": {
+      "dotnet.native.wasm": "sha256-KrQJmtd8XCZ4sQ/hUwfFIvDwtka/oC0kwAhJ+fjNqbQ="
+    },
+    "coreAssembly": {
+      "Raylib-cs.wasm": "sha256-osWjiglD5h7qoAZAXiXDLRM57r8gMomzIzlDyxbJdWU=",
+      "RaylibWasm.wasm": "sha256-TitI9qD3o3NbRQGaZOTCd2VW/R6NZSCaT3FbjQBKEOE=",
+      "System.Private.CoreLib.wasm": "sha256-fUyg7hyLcuvRdNcT59Qj8fN7csTvQtUITHVlD3uDN5s=",
+      "System.Runtime.InteropServices.JavaScript.wasm": "sha256-VnNgpqP7SIQccYrjGmwpP42yW84WmVcFk0BGZtPRJqQ=",
+      "aot-instances.wasm": "sha256-Obp5F98Qz12KeOrJulW9k5x0dhTFvl7fSl2QI+FAhZk="
+    },
+    "assembly": {},
+    "coreVfs": {
+      "runtimeconfig.bin": {
+        "supportFiles/1_runtimeconfig.bin": "sha256-j8dmK7YPHHTbkS+ZwJixur+jBDk8AnCzB1le9oZbtDQ="
+      }
+    },
+    "vfs": {
+      "Resources//raylib_logo.png": {
+        "supportFiles/0_raylib_logo.png": "sha256-tRbYuDIagXxsCoy2AuoCiC107Lt8YOhS0uFHEUpDYLc="
+      }
+    }
+  },
+  "debugLevel": 0,
+  "globalizationMode": "invariant"
+}

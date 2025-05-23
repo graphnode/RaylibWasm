@@ -1,36 +1,53 @@
 ﻿using System;
 using System.Numerics;
 using System.Runtime.InteropServices.JavaScript;
+using System.Runtime.Versioning;
 using Raylib_cs;
 
 namespace RaylibWasm
 {
-    public partial class Application
+#if BROWSER
+    [SupportedOSPlatform("browser")]
+#endif
+    public static partial class Application
     {
         private static Texture2D _logo;
         private static Vector2 _position = Vector2.Zero;
         private static Vector2 _velocity = new(60, 60);
         
-        /// <summary>
-        /// Application entry point
-        /// </summary>
         public static void Main()
         {
+            Initialize();
+
+#if !BROWSER
+            while (!Raylib.WindowShouldClose())
+            {
+                Update(Raylib.GetFrameTime());
+                Draw();
+            }
+#endif
+        }
+        
+#if BROWSER
+        [JSExport]
+        private static void UpdateFrame()
+        {
+            Update(Raylib.GetFrameTime());
+            Draw();
+        }
+#endif
+
+        private static void Initialize()
+        {
             Raylib.SetConfigFlags(ConfigFlags.ResizableWindow);
-            Raylib.InitWindow(512, 512, "RaylibWasm");
+            Raylib.InitWindow(1024, 768, "RaylibWasm");
             //Raylib.SetTargetFPS(60);
             
             _logo = Raylib.LoadTexture("Resources/raylib_logo.png");
         }
 
-        /// <summary>
-        /// Updates frame
-        /// </summary>
-        [JSExport]
-        public static void UpdateFrame()
+        private static void Update(float dt)
         {
-            var dt = Raylib.GetFrameTime();
-            
             _position += _velocity * dt;
             
             if (_position.X < 0 || _position.X > Raylib.GetScreenWidth() - _logo.Width)
@@ -40,7 +57,10 @@ namespace RaylibWasm
             
             _position.X = Math.Clamp(_position.X, 0, Raylib.GetScreenWidth() - _logo.Width);
             _position.Y = Math.Clamp(_position.Y, 0, Raylib.GetScreenHeight() - _logo.Height);
-            
+        }
+
+        private static void Draw()
+        {
             Raylib.BeginDrawing();
 
             Raylib.ClearBackground(Color.RayWhite);

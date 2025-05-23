@@ -1,12 +1,20 @@
 {
   "profiles": {
-    "RaylibWasm": {
+    "Web": {
       "commandName": "Project",
+      "hotReloadEnabled": true,
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "applicationUrl": "http://localhost:59847;https://localhost:59846"
+    },
+    "Desktop": {
+      "commandName": "Project",
+      "hotReloadEnabled": true,
+      "environmentVariables": {
+        "DOTNETCORE_ENVIRONMENT": "Development"
+      }
     }
   }
 }

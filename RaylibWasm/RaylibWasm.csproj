@@ -4,41 +4,63 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
-    <RuntimeIdentifier>browser-wasm</RuntimeIdentifier>
-    <WasmMainJSPath>main.js</WasmMainJSPath>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <InvariantGlobalization>true</InvariantGlobalization>
     <EnableAggressiveTrimming>true</EnableAggressiveTrimming>
     <PublishTrimmed>true</PublishTrimmed>
     <TrimMode>full</TrimMode>
     <RunAOTCompilation>true</RunAOTCompilation>
+    <Configurations>Debug;Release</Configurations>
+    <Platforms>AnyCPU;Web</Platforms>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Platform)'=='AnyCPU'">
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(Platform)'=='AnyCPU'">
+    <None Update="Resources\**\*.*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  
+  <PropertyGroup Condition="'$(Platform)'=='Web'">
+    <DefineConstants>BROWSER;$(DefineConstants)</DefineConstants>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <RuntimeIdentifier>browser-wasm</RuntimeIdentifier>
+    <WasmMainJSPath>main.js</WasmMainJSPath>
     <WasmBuildNative>true</WasmBuildNative>
     <WasmNativeStrip>true</WasmNativeStrip>
     <WasmAllowUndefinedSymbols>true</WasmAllowUndefinedSymbols>
   </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Raylib-cs" Version="7.0.1" />
-  </ItemGroup>
-
-  <ItemGroup>
+  
+  <ItemGroup Condition="'$(Platform)'=='Web'">
     <WasmExtraFilesToDeploy Include="index.html" />
     <WasmExtraFilesToDeploy Include="main.js" />
     <NativeFileReference Include="raylib.a" />
     <WasmFilesToIncludeInFileSystem Include="Resources\**\*.*" TargetPath="Resources\%(RecursiveDir)\%(Filename)%(Extension)" />
   </ItemGroup>
-
+  
   <Choose>
-    <When Condition=" $(Configuration) == 'Debug' ">
+    <When Condition="'$(Platform)'=='Web' and $(Configuration) == 'Debug'">
       <PropertyGroup>
         <WasmEmitSymbolMap>true</WasmEmitSymbolMap>
         <EmccFlags>-sUSE_GLFW=3 -sVERBOSE=1 -Wbad-function-cast -Wcast-function-type -O2 -g3 -sINITIAL_MEMORY=128MB -sMAXIMUM_MEMORY=2048MB -sALLOW_MEMORY_GROWTH=1 -lexports.js</EmccFlags>
       </PropertyGroup>
     </When>
-    <When Condition=" $(Configuration) == 'Release' ">
+    <When Condition="'$(Platform)'=='Web' and $(Configuration) == 'Release'">
       <PropertyGroup>
         <EmccFlags>-s USE_GLFW=3 -O3 -lexports.js</EmccFlags>
       </PropertyGroup>
     </When>
   </Choose>
+    
+  <Target Name="TestMessage" AfterTargets="Build" >
+    <Message Text="Platform: $(Platform)" Importance="high"/>
+    <Message Text="RuntimeIdentifier: $(RuntimeIdentifier)" Importance="high"/>
+  </Target>
+  
+  <ItemGroup>
+    <PackageReference Include="Raylib-cs" Version="7.0.1" />
+  </ItemGroup>
 </Project>
